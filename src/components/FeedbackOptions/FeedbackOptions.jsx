@@ -1,33 +1,32 @@
-import React from 'react';
-// import styled from 'styled-components';
+import styled from 'styled-components';
 
+const FeedbackItem = styled.ul`
+  list-style: none;
+  display: flex;
+`;
 
-export const FeedbackOptions = ({ onLeaveFeedback, options }) => {
-  console.log(options);
+const FeedbackLink = styled.li`
+  margin-left: 15px;
+`;
+
+const Button = styled.button`
+  width: 70px;
+  height: 30px;
+  cursor: pointer;
+`
+
+const FeedbackOptions = ({ onLeaveFeedback, options }) => {
   return (
-    <ul>
+    <FeedbackItem>
       {options.map(option => (
-        <li key={option}>
-          <button type="button" onClick={() => onLeaveFeedback(option)}>
+        <FeedbackLink key={option}>
+          <Button type="button" onClick={() => onLeaveFeedback(option)}>
             {option}
-          </button>
-        </li>
+          </Button>
+        </FeedbackLink>
       ))}
-      {/* <li>
-        <button type="button" onClick={onLeaveFeedback('good')}>
-          Good
-        </button>
-      </li>
-      <li>
-        <button type="button" onClick={() => onLeaveFeedback('neutral')}>
-          Neutral
-        </button>
-      </li>
-      <li>
-        <button type="button" onClick={() => onLeaveFeedback('bad')}>
-          Bad
-        </button>
-      </li> */}
-    </ul>
+    </FeedbackItem>
   );
 };
+
+export default FeedbackOptions;
